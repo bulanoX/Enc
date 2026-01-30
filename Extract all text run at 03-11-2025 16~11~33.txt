@@ -1,0 +1,1217 @@
+CREATE VIEW IF NOT EXISTS PXMGT_RATING.COVERAGE
+AS
+(
+    SELECT
+        BK_RATING_ID,
+        BK_RATING_VERSION,
+        BK_RATER_NAME,
+        BK_CLIENT_SUPPLIED_ID,
+        BK_OPTION_ID,
+        BK_COVERAGE_NAME,
+        
+        EVENT_LOAD_TIMESTAMP,
+        RECORD_KAFKA_NPTS,
+        RECORD_KAFKA_OFFSET,
+        RECORD_KAFKA_PARTITION,
+        CREATED_AT,
+        CREATED_BY,
+        CREATED_FROM,
+        PROCESS_ID,
+        SOURCE_NAME
+    FROM
+        PXMGT_RATING_020_STG.COVERAGE
+);CREATE VIEW IF NOT EXISTS PXMGT_RATING.COVERAGE_DETAIL
+AS
+(
+    SELECT
+        BK_RATING_ID,
+        BK_RATING_VERSION,
+        BK_RATER_NAME,
+        BK_CLIENT_SUPPLIED_ID,
+        BK_OPTION_ID,
+        BK_COVERAGE_NAME,
+        BK_COVERAGE_DETAIL_CATEGORY,
+        BK_COVERAGE_DETAIL_SUBCATEGORY,
+
+        IS_AGGREGATE_OR_PRINCIPLE,
+        AMOUNT,
+        CURRENCY_CODE,
+        
+        EVENT_LOAD_TIMESTAMP,
+        RECORD_KAFKA_NPTS,
+        RECORD_KAFKA_OFFSET,
+        RECORD_KAFKA_PARTITION,
+        CREATED_AT,
+        CREATED_BY,
+        CREATED_FROM,
+        PROCESS_ID,
+        SOURCE_NAME
+    FROM PXMGT_RATING_020_STG.COVERAGE_DETAIL
+);
+CREATE VIEW IF NOT EXISTS PXMGT_RATING.COVERAGE_PREMIUM
+AS
+(
+    SELECT
+        BK_RATING_ID,
+        BK_RATING_VERSION,
+        BK_RATER_NAME,
+        BK_CLIENT_SUPPLIED_ID,
+        BK_OPTION_ID,
+        BK_COVERAGE_NAME,
+
+        COVERAGE_BPI,
+        COVERAGE_BENCHMARK_PREMIUM,
+        COVERAGE_FINAL_MODEL_PREMIUM,
+
+        EVENT_LOAD_TIMESTAMP,
+        RECORD_KAFKA_NPTS,
+        RECORD_KAFKA_OFFSET,
+        RECORD_KAFKA_PARTITION,
+        CREATED_AT,
+        CREATED_BY,
+        CREATED_FROM,
+        PROCESS_ID,
+        SOURCE_NAME
+    FROM
+        PXMGT_RATING_020_STG.COVERAGE_PREMIUM
+);CREATE VIEW IF NOT EXISTS PXMGT_RATING.COVERAGE_PREMIUM_DETAIL
+AS
+(
+    SELECT
+        BK_RATING_ID,
+        BK_RATING_VERSION,
+        BK_RATER_NAME,
+        BK_CLIENT_SUPPLIED_ID,
+        BK_OPTION_ID,
+        BK_COVERAGE_NAME,
+        BK_COVERAGE_PREMIUM_DETAIL_CATEGORY,
+        BK_COVERAGE_PREMIUM_DETAIL_SUBCATEGORY,
+
+        COVERAGE_PREMIUM_DETAIL_VALUE,
+        
+        EVENT_LOAD_TIMESTAMP,
+        RECORD_KAFKA_NPTS,
+        RECORD_KAFKA_OFFSET,
+        RECORD_KAFKA_PARTITION,
+        CREATED_AT,
+        CREATED_BY,
+        CREATED_FROM,
+        PROCESS_ID,
+        SOURCE_NAME
+    FROM
+        PXMGT_RATING_020_STG.COVERAGE_PREMIUM_DETAIL
+);CREATE VIEW IF NOT EXISTS PXMGT_RATING.COVERAGE_RATER_DEFINED
+AS
+(
+    SELECT
+        BK_RATING_ID,
+        BK_RATING_VERSION,
+        BK_RATER_NAME,
+        BK_CLIENT_SUPPLIED_ID,
+        BK_OPTION_ID,
+        BK_COVERAGE_NAME,
+        BK_COVERAGE_KEY,
+
+        COVERAGE_VALUE,
+        
+        EVENT_LOAD_TIMESTAMP,
+        RECORD_KAFKA_NPTS,
+        RECORD_KAFKA_OFFSET,
+        RECORD_KAFKA_PARTITION,
+        CREATED_AT,
+        CREATED_BY,
+        CREATED_FROM,
+        PROCESS_ID,
+        SOURCE_NAME
+    FROM
+        PXMGT_RATING_020_STG.COVERAGE_RATER_DEFINED
+);CREATE VIEW IF NOT EXISTS PXMGT_RATING.CURRENCY
+AS
+(
+    SELECT
+        BK_RATING_ID,
+        BK_RATING_VERSION,
+        BK_RATER_NAME,
+        BK_CLIENT_SUPPLIED_ID,
+
+        TARGET_CURRENCY,
+        SOURCE_CURRENCY,
+        MULTI_CURRENCY_SUPPORT,
+        
+        EVENT_LOAD_TIMESTAMP,
+        RECORD_KAFKA_NPTS,
+        RECORD_KAFKA_OFFSET,
+        RECORD_KAFKA_PARTITION,
+        CREATED_AT,
+        CREATED_BY,
+        CREATED_FROM,
+        PROCESS_ID,
+        SOURCE_NAME
+    FROM
+        PXMGT_RATING_020_STG.CURRENCY
+);CREATE VIEW IF NOT EXISTS PXMGT_RATING.CURRENCY_RATE
+AS
+(
+    SELECT
+        BK_RATING_ID,
+        BK_RATING_VERSION,
+        BK_RATER_NAME,
+        BK_CLIENT_SUPPLIED_ID,
+        BK_RATE_CURRENCY,
+
+        RATE,
+
+        EVENT_LOAD_TIMESTAMP,
+        RECORD_KAFKA_NPTS,
+        RECORD_KAFKA_OFFSET,
+        RECORD_KAFKA_PARTITION,
+        CREATED_AT,
+        CREATED_BY,
+        CREATED_FROM,
+        PROCESS_ID,
+        SOURCE_NAME
+    FROM
+        PXMGT_RATING_020_STG.CURRENCY_RATE
+);
+CREATE VIEW IF NOT EXISTS PXMGT_RATING.INDUSTRY
+AS
+(
+    SELECT
+        BK_RATING_ID,
+        BK_RATING_VERSION,
+        BK_RATER_NAME,
+        BK_CLIENT_SUPPLIED_ID,
+        BK_INDUSTRY_NAME,
+
+        CODE,
+        CODE_TYPE,
+        PERCENTAGE,
+        SECTOR,
+        SECTOR_CLASSIFICATION,
+        RESOLVED_CODE,
+        
+        EVENT_LOAD_TIMESTAMP,
+        RECORD_KAFKA_NPTS,
+        RECORD_KAFKA_OFFSET,
+        RECORD_KAFKA_PARTITION,
+        CREATED_AT,
+        CREATED_BY,
+        CREATED_FROM,
+        PROCESS_ID,
+        SOURCE_NAME
+    FROM
+        PXMGT_RATING_020_STG.INDUSTRY
+);CREATE VIEW IF NOT EXISTS PXMGT_RATING.OPTION
+AS
+(
+    SELECT
+        BK_RATING_ID,
+        BK_RATING_VERSION,
+        BK_RATER_NAME,
+        BK_CLIENT_SUPPLIED_ID,
+        BK_OPTION_ID,
+
+        BROKERAGE,
+        WRITTEN_LINE,
+        BOUND_PREMIUM_AMOUNT,
+        BOUND_PREMIUM_CURRENCY,
+        
+        EVENT_LOAD_TIMESTAMP,
+        RECORD_KAFKA_NPTS,
+        RECORD_KAFKA_OFFSET,
+        RECORD_KAFKA_PARTITION,
+        CREATED_AT,
+        CREATED_BY,
+        CREATED_FROM,
+        PROCESS_ID,
+        SOURCE_NAME
+    FROM
+        PXMGT_RATING_020_STG.OPTION
+);CREATE VIEW IF NOT EXISTS PXMGT_RATING.OPTION_DETAIL
+AS
+(
+    SELECT
+        BK_RATING_ID,
+        BK_RATING_VERSION,
+        BK_RATER_NAME,
+        BK_CLIENT_SUPPLIED_ID,
+        BK_OPTION_ID,
+        BK_OPTION_DETAIL_CATEGORY,
+        BK_OPTION_DETAIL_SUBCATEGORY,
+
+        IS_AGGREGATE_OR_PRINCIPLE,
+        AMOUNT,
+        CURRENCY_CODE,
+
+        EVENT_LOAD_TIMESTAMP,
+        RECORD_KAFKA_NPTS,
+        RECORD_KAFKA_OFFSET,
+        RECORD_KAFKA_PARTITION,
+        CREATED_AT,
+        CREATED_BY,
+        CREATED_FROM,
+        PROCESS_ID,
+        SOURCE_NAME
+    FROM
+        PXMGT_RATING_020_STG.OPTION_DETAIL
+);
+CREATE VIEW IF NOT EXISTS PXMGT_RATING.OPTION_PREMIUM
+AS
+(
+    SELECT
+        BK_RATING_ID,
+        BK_RATING_VERSION,
+        BK_RATER_NAME,
+        BK_CLIENT_SUPPLIED_ID,
+        BK_OPTION_ID,
+
+        OPTION_BPI,
+        OPTION_BENCHMARK_PREMIUM,
+        OPTION_FINAL_MODEL_PREMIUM,
+
+        EVENT_LOAD_TIMESTAMP,
+        RECORD_KAFKA_NPTS,
+        RECORD_KAFKA_OFFSET,
+        RECORD_KAFKA_PARTITION,
+        CREATED_AT,
+        CREATED_BY,
+        CREATED_FROM,
+        PROCESS_ID,
+        SOURCE_NAME
+    FROM
+        PXMGT_RATING_020_STG.OPTION_PREMIUM
+);CREATE VIEW IF NOT EXISTS PXMGT_RATING.OPTION_PREMIUM_DETAIL
+AS
+(
+    SELECT
+        BK_RATING_ID,
+        BK_RATING_VERSION,
+        BK_RATER_NAME,
+        BK_CLIENT_SUPPLIED_ID,
+        BK_OPTION_ID,
+        BK_OPTION_PREMIUM_DETAIL_CATEGORY,
+        BK_OPTION_PREMIUM_DETAIL_SUBCATEGORY,
+
+        OPTION_PREMIUM_DETAIL_VALUE,
+
+        EVENT_LOAD_TIMESTAMP,
+        RECORD_KAFKA_NPTS,
+        RECORD_KAFKA_OFFSET,
+        RECORD_KAFKA_PARTITION,
+        CREATED_AT,
+        CREATED_BY,
+        CREATED_FROM,
+        PROCESS_ID,
+        SOURCE_NAME
+    FROM
+        PXMGT_RATING_020_STG.OPTION_PREMIUM_DETAIL
+);CREATE VIEW IF NOT EXISTS PXMGT_RATING.OPTION_RATER_DEFINED
+AS
+(
+    SELECT
+        BK_RATING_ID,
+        BK_RATING_VERSION,
+        BK_RATER_NAME,
+        BK_CLIENT_SUPPLIED_ID,
+        BK_OPTION_ID,
+        BK_OPTION_KEY,
+
+        OPTION_VALUE,
+        
+        EVENT_LOAD_TIMESTAMP,
+        RECORD_KAFKA_NPTS,
+        RECORD_KAFKA_OFFSET,
+        RECORD_KAFKA_PARTITION,
+        CREATED_AT,
+        CREATED_BY,
+        CREATED_FROM,
+        PROCESS_ID,
+        SOURCE_NAME
+    FROM
+        PXMGT_RATING_020_STG.OPTION_RATER_DEFINED
+);CREATE VIEW IF NOT EXISTS PXMGT_RATING.RATED_RISK
+AS
+(
+    SELECT
+        BK_RATING_ID,
+        BK_RATING_VERSION,
+        BK_RATER_NAME,
+        BK_CLIENT_SUPPLIED_ID,
+
+        REQUEST_DATE,
+        RESPONSE_CREATED,
+        RESPONSE_LAST_UPDATED,
+        RESPONSE_STATUS,
+        PRODUCT_ID,
+
+        EVENT_LOAD_TIMESTAMP,
+        RECORD_KAFKA_NPTS,
+        RECORD_KAFKA_OFFSET,
+        RECORD_KAFKA_PARTITION,
+        CREATED_AT,
+        CREATED_BY,
+        CREATED_FROM,
+        PROCESS_ID,
+        SOURCE_NAME
+    FROM
+        PXMGT_RATING_020_STG.RATED_RISK
+);CREATE VIEW IF NOT EXISTS PXMGT_RATING.RATED_RISK_INFORMATION
+AS
+(
+    SELECT
+        BK_RATING_ID,
+        BK_RATING_VERSION,
+        BK_RATER_NAME,
+        BK_CLIENT_SUPPLIED_ID,
+
+        INCEPTION_DATE,
+        EXPIRATION_DATE,
+        INSURED_STATE_OR_PROVINCE,
+        INSURED_COUNTRY,
+        INSURED_POSTAL_CODE,
+        STAGE,
+        IS_FREE_TRADE_ZONE,
+        IS_RENEWAL,
+        IS_ADMITTED_OR_SURPLUS,
+        IS_PRIMARY_OR_EXCESS,
+
+        EVENT_LOAD_TIMESTAMP,
+        RECORD_KAFKA_NPTS,
+        RECORD_KAFKA_OFFSET,
+        RECORD_KAFKA_PARTITION,
+        CREATED_AT,
+        CREATED_BY,
+        CREATED_FROM,
+        PROCESS_ID,
+        SOURCE_NAME
+    FROM
+        PXMGT_RATING_020_STG.RATED_RISK_INFORMATION
+);CREATE VIEW IF NOT EXISTS PXMGT_RATING.RATED_RISK_RATER_DEFINED
+AS
+(
+    SELECT
+        BK_RATING_ID,
+        BK_RATING_VERSION,
+        BK_RATER_NAME,
+        BK_CLIENT_SUPPLIED_ID,
+        BK_KEY,
+        
+        VALUE,
+        
+        EVENT_LOAD_TIMESTAMP,
+        RECORD_KAFKA_NPTS,
+        RECORD_KAFKA_OFFSET,
+        RECORD_KAFKA_PARTITION,
+        CREATED_AT,
+        CREATED_BY,
+        CREATED_FROM,
+        PROCESS_ID,
+        SOURCE_NAME
+    FROM
+        PXMGT_RATING_020_STG.RATED_RISK_RATER_DEFINED
+);create or replace view PXMGT_RATING.RATER_CLAIM_RATER_DEFINED(
+	BK_RATER_NAME,
+	BK_VERSION,
+	BK_RATING_ID,
+	SK_CLAIM_SEQUENCE_NO,
+	BK_CLAIM_KEY,
+	BK_CLIENT_SUPPLIED_ID,
+	CLAIM_VALUE,
+	EVENT_LOAD_TIMESTAMP,
+	RECORD_KAFKA_NPTS,
+	RECORD_KAFKA_OFFSET,
+	RECORD_KAFKA_PARTITION,
+	CREATED_AT,
+	CREATED_BY,
+	CREATED_FROM,
+	PROCESS_ID,
+	SOURCE_NAME
+) as
+            SELECT       BK_RATER_NAME 
+                        ,BK_VERSION 
+                        ,BK_RATING_ID 
+                        ,SK_CLAIM_SEQUENCE_NO 
+                        ,BK_CLAIM_KEY 
+                        ,BK_CLIENT_SUPPLIED_ID 
+                        ,CLAIM_VALUE
+                        ,EVENT_LOAD_TIMESTAMP
+                    	,RECORD_KAFKA_NPTS 
+                    	,RECORD_KAFKA_OFFSET 
+                    	,RECORD_KAFKA_PARTITION 
+                    	,CREATED_AT 
+                    	,CREATED_BY
+                    	,CREATED_FROM 
+                    	,PROCESS_ID 
+                    	,SOURCE_NAME 
+            FROM        PXMGT_RATING_020_STG.RATER_CLAIM_RATER_DEFINED;create or replace view PXMGT_RATING.RATER_COVERAGE(
+	BK_RATER_NAME,
+	BK_VERSION,
+	BK_RATING_ID,
+	SK_LAYER_SEQUENCE_NUMBER,
+	BK_CLIENT_SUPPLIED_ID,
+	COVERAGE_ARRAY_NAME,
+	LIMIT,
+	EXCESS,
+	DEDUCTIBLE,
+	AGGREGATE_LIMIT,
+	AGGREGATE_EXCESS,
+	AGGREGATE_DEDUCTIBLE,
+	--COVERAGE_NAME,
+	CURRENCY,
+	SECTION_REFERENCE,
+	BROKERAGE,
+	WRITTEN_LINE,
+	PREMIUM,
+	STATUS,
+	BENCHMARK_PREMIUM,
+	BPI,
+	BPI_PRE_UW_ADJ,
+	MODEL_PREMIUM,
+	UNITY_PREMIUM,
+	QUOTED_PREMIUM,
+	TECHNICAL_PREMIUM,
+	TECHNICAL_PREMIUM_NET,
+	TECHNICAL_PREMIUM_PRE_UW_ADJ,
+	TPI,
+	TPI_PRE_UW_ADJ,
+	PFLR,
+	PFLR_ATT,
+	PFLR_CAT,
+	ROC,
+	UW_ADJ_IMPACT,
+	EVENT_LOAD_TIMESTAMP,
+	RECORD_KAFKA_NPTS,
+	RECORD_KAFKA_OFFSET,
+	RECORD_KAFKA_PARTITION,
+	CREATED_AT,
+	CREATED_BY,
+	CREATED_FROM,
+	PROCESS_ID,
+	SOURCE_NAME
+) as
+            SELECT       BK_RATER_NAME 
+                    	,BK_VERSION
+                    	,BK_RATING_ID 
+                    	,SK_LAYER_SEQUENCE_NUMBER 
+                    	,BK_CLIENT_SUPPLIED_ID 
+						,COVERAGE_ARRAY_NAME
+                    	,LIMIT 
+                    	,EXCESS 
+                    	,DEDUCTIBLE 
+                    	,AGGREGATE_LIMIT 
+                    	,AGGREGATE_EXCESS
+                    	,AGGREGATE_DEDUCTIBLE 
+                    	--,COVERAGE_NAME
+                    	,CURRENCY 
+                    	,SECTION_REFERENCE 
+                    	,BROKERAGE
+                    	,WRITTEN_LINE 
+                    	,PREMIUM 
+                    	,STATUS 
+                    	,BENCHMARK_PREMIUM 
+                    	,BPI 
+                    	,BPI_PRE_UW_ADJ 
+                    	,MODEL_PREMIUM 
+                    	,UNITY_PREMIUM 
+                    	,QUOTED_PREMIUM 
+                    	,TECHNICAL_PREMIUM 
+                    	,TECHNICAL_PREMIUM_NET 
+                    	,TECHNICAL_PREMIUM_PRE_UW_ADJ 
+                    	,TPI 
+                    	,TPI_PRE_UW_ADJ 
+                    	,PFLR 
+                    	,PFLR_ATT 
+                    	,PFLR_CAT
+                    	,ROC
+                    	,UW_ADJ_IMPACT
+                        ,EVENT_LOAD_TIMESTAMP
+                        ,RECORD_KAFKA_NPTS 
+                        ,RECORD_KAFKA_OFFSET 
+                        ,RECORD_KAFKA_PARTITION 
+                        ,CREATED_AT 
+                        ,CREATED_BY
+                        ,CREATED_FROM 
+                        ,PROCESS_ID 
+                        ,SOURCE_NAME
+            FROM        PXMGT_RATING_020_STG.RATER_COVERAGE;create or replace view PXMGT_RATING.RATER_COVERAGE_RATER_DEFINED(
+	BK_RATER_NAME,
+	BK_VERSION,
+	BK_RATING_ID,
+	SK_LAYER_SEQUENCE_NUMBER,
+	BK_CLIENT_SUPPLIED_ID,
+	BK_COVERAGE_KEY,
+	COVERAGE_VALUE,
+	COVERAGE_ARRAY_NAME,
+	EVENT_LOAD_TIMESTAMP,
+	RECORD_KAFKA_NPTS,
+	RECORD_KAFKA_OFFSET,
+	RECORD_KAFKA_PARTITION,
+	CREATED_AT,
+	CREATED_BY,
+	CREATED_FROM,
+	PROCESS_ID,
+	SOURCE_NAME
+) as
+            SELECT       BK_RATER_NAME 
+                    	,BK_VERSION 
+                    	,BK_RATING_ID 
+                    	,SK_LAYER_SEQUENCE_NUMBER 
+                    	,BK_CLIENT_SUPPLIED_ID 
+                    	,BK_COVERAGE_KEY
+                    	,COVERAGE_VALUE
+						,COVERAGE_ARRAY_NAME
+                        ,EVENT_LOAD_TIMESTAMP
+                        ,RECORD_KAFKA_NPTS 
+                        ,RECORD_KAFKA_OFFSET 
+                        ,RECORD_KAFKA_PARTITION 
+                        ,CREATED_AT 
+                        ,CREATED_BY
+                        ,CREATED_FROM 
+                        ,PROCESS_ID 
+                        ,SOURCE_NAME
+            FROM        PXMGT_RATING_020_STG.RATER_COVERAGE_RATER_DEFINED;create or replace view PXMGT_RATING.RATER_CURRENCY(
+	BK_RATER_NAME,
+	BK_VERSION,
+	BK_RATING_ID,
+	BK_CLIENT_SUPPLIED_ID,
+	TARGET_CURRENCY,
+	SOURCE_CURRENCY,
+	MULTI_CURRENCY_SUPPORT,
+	EVENT_LOAD_TIMESTAMP,
+	RECORD_KAFKA_NPTS,
+	RECORD_KAFKA_OFFSET,
+	RECORD_KAFKA_PARTITION,
+	CREATED_AT,
+	CREATED_BY,
+	CREATED_FROM,
+	PROCESS_ID,
+	SOURCE_NAME
+) as
+            SELECT       BK_RATER_NAME 
+                    	,BK_VERSION 
+                    	,BK_RATING_ID 
+                    	,BK_CLIENT_SUPPLIED_ID 
+                    	,TARGET_CURRENCY 
+                    	,SOURCE_CURRENCY 
+                    	,MULTI_CURRENCY_SUPPORT
+                        ,EVENT_LOAD_TIMESTAMP
+                        ,RECORD_KAFKA_NPTS 
+                        ,RECORD_KAFKA_OFFSET 
+                        ,RECORD_KAFKA_PARTITION 
+                        ,CREATED_AT 
+                        ,CREATED_BY
+                        ,CREATED_FROM 
+                        ,PROCESS_ID 
+                        ,SOURCE_NAME
+            FROM        PXMGT_RATING_020_STG.RATER_CURRENCY;create or replace view PXMGT_RATING.RATER_EXPERIENCE_RATING(
+	BK_RATER_NAME,
+	BK_VERSION,
+	BK_RATING_ID,
+	BK_CLIENT_SUPPLIED_ID,
+	CLAIMS_AVAILABLE,
+	CLAIMS_FGU,
+	CLAIMS_NET_OF_DEDUCTIBLE,
+	EVENT_LOAD_TIMESTAMP,
+	RECORD_KAFKA_NPTS,
+	RECORD_KAFKA_OFFSET,
+	RECORD_KAFKA_PARTITION,
+	CREATED_AT,
+	CREATED_BY,
+	CREATED_FROM,
+	PROCESS_ID,
+	SOURCE_NAME
+) as
+            SELECT       BK_RATER_NAME 
+                    	,BK_VERSION 
+                    	,BK_RATING_ID 
+                    	,BK_CLIENT_SUPPLIED_ID 
+                    	,CLAIMS_AVAILABLE 
+                    	,CLAIMS_FGU 
+                    	,CLAIMS_NET_OF_DEDUCTIBLE
+                        ,EVENT_LOAD_TIMESTAMP
+                        ,RECORD_KAFKA_NPTS 
+                        ,RECORD_KAFKA_OFFSET 
+                        ,RECORD_KAFKA_PARTITION 
+                        ,CREATED_AT 
+                        ,CREATED_BY
+                        ,CREATED_FROM 
+                        ,PROCESS_ID 
+                        ,SOURCE_NAME
+            FROM        PXMGT_RATING_020_STG.RATER_EXPERIENCE_RATING;create or replace view PXMGT_RATING.RATER_EXPERIENCE_RATING_RATER_DEFINED(
+	BK_RATER_NAME,
+	BK_VERSION,
+	BK_RATING_ID,
+	BK_EXPERIENCE_RATING_KEY,
+	BK_CLIENT_SUPPLIED_ID,
+	EXPERIENCE_RATING_VALUE,
+	EVENT_LOAD_TIMESTAMP,
+	RECORD_KAFKA_NPTS,
+	RECORD_KAFKA_OFFSET,
+	RECORD_KAFKA_PARTITION,
+	CREATED_AT,
+	CREATED_BY,
+	CREATED_FROM,
+	PROCESS_ID,
+	SOURCE_NAME
+) as
+            SELECT       BK_RATER_NAME 
+                    	,BK_VERSION 
+                    	,BK_RATING_ID 
+                    	,BK_EXPERIENCE_RATING_KEY 
+                    	,BK_CLIENT_SUPPLIED_ID 
+                    	,EXPERIENCE_RATING_VALUE
+                        ,EVENT_LOAD_TIMESTAMP
+                        ,RECORD_KAFKA_NPTS 
+                        ,RECORD_KAFKA_OFFSET 
+                        ,RECORD_KAFKA_PARTITION 
+                        ,CREATED_AT 
+                        ,CREATED_BY
+                        ,CREATED_FROM 
+                        ,PROCESS_ID 
+                        ,SOURCE_NAME
+            FROM        PXMGT_RATING_020_STG.RATER_EXPERIENCE_RATING_RATER_DEFINED;create or replace view PXMGT_RATING.RATER_EXPOSURE_RATER_DEFINED(
+	BK_RATER_NAME,
+	BK_VERSION,
+	BK_RATING_ID,
+	BK_EXPOSURE_TYPE,
+	SK_EXPOSURE_SEQUENCE_NO,
+	BK_EXPOSURE_KEY,
+	BK_CLIENT_SUPPLIED_ID,
+	EXPOSURE_VALUE,
+	EVENT_LOAD_TIMESTAMP,
+	RECORD_KAFKA_NPTS,
+	RECORD_KAFKA_OFFSET,
+	RECORD_KAFKA_PARTITION,
+	CREATED_AT,
+	CREATED_BY,
+	CREATED_FROM,
+	PROCESS_ID,
+	SOURCE_NAME
+) as
+            SELECT       BK_RATER_NAME 
+                    	,BK_VERSION 
+                    	,BK_RATING_ID 
+                    	,BK_EXPOSURE_TYPE 
+                    	,SK_EXPOSURE_SEQUENCE_NO 
+                    	,BK_EXPOSURE_KEY 
+                    	,BK_CLIENT_SUPPLIED_ID 
+                    	,EXPOSURE_VALUE
+                        ,EVENT_LOAD_TIMESTAMP
+                        ,RECORD_KAFKA_NPTS 
+                        ,RECORD_KAFKA_OFFSET 
+                        ,RECORD_KAFKA_PARTITION 
+                        ,CREATED_AT 
+                        ,CREATED_BY
+                        ,CREATED_FROM 
+                        ,PROCESS_ID 
+                        ,SOURCE_NAME
+            FROM        PXMGT_RATING_020_STG.RATER_EXPOSURE_RATER_DEFINED;create or replace view PXMGT_RATING.RATER_KEY_INDUSTRY(
+	BK_RATER_NAME,
+	BK_VERSION,
+	BK_RATING_ID,
+	BK_KEY_INDUSTRY,
+	BK_CLIENT_SUPPLIED_ID,
+	CODE_NAME,
+	CODE_TYPE,
+	EVENT_LOAD_TIMESTAMP,
+	RECORD_KAFKA_NPTS,
+	RECORD_KAFKA_OFFSET,
+	RECORD_KAFKA_PARTITION,
+	CREATED_AT,
+	CREATED_BY,
+	CREATED_FROM,
+	PROCESS_ID,
+	SOURCE_NAME
+) as
+            SELECT       BK_RATER_NAME 
+                    	,BK_VERSION 
+                    	,BK_RATING_ID 
+                    	,BK_KEY_INDUSTRY 
+                    	,BK_CLIENT_SUPPLIED_ID 
+                    	,CODE_NAME 
+                    	,CODE_TYPE
+                        ,EVENT_LOAD_TIMESTAMP
+                        ,RECORD_KAFKA_NPTS 
+                        ,RECORD_KAFKA_OFFSET 
+                        ,RECORD_KAFKA_PARTITION 
+                        ,CREATED_AT 
+                        ,CREATED_BY
+                        ,CREATED_FROM 
+                        ,PROCESS_ID 
+                        ,SOURCE_NAME
+            FROM        PXMGT_RATING_020_STG.RATER_KEY_INDUSTRY;create or replace view PXMGT_RATING.RATER_LAYER(
+	BK_RATER_NAME,
+	BK_VERSION,
+	BK_RATING_ID,
+	SK_LAYER_SEQUENCE_NUMBER,
+	BK_CLIENT_SUPPLIED_ID,
+	--COVERAGE_NAME,
+	IS_PRIMARY_EXCESS,
+	TRIFOCUS,
+	EXPECTED_LOSS_COST,
+	EXPECTED_LOSS_COST_PRE_UW_ADJ,
+	LIMIT,
+	EXCESS,
+	DEDUCTIBLE,
+	AGGREGATE_LIMIT,
+	AGGREGATE_EXCESS,
+	AGGREGATE_DEDUCTIBLE,
+	CURRENCY,
+	SECTION_REFERENCE,
+	BROKERAGE,
+	WRITTEN_LINE,
+	PREMIUM,
+	STATUS,
+	BENCHMARK_PREMIUM,
+	BPI,
+	BPI_PRE_UW_ADJ,
+	MODEL_PREMIUM,
+	UNITY_PREMIUM,
+	QUOTED_PREMIUM,
+	TECHNICAL_PREMIUM,
+	TECHNICAL_PREMIUM_NET,
+	TECHNICAL_PREMIUM_PRE_UW_ADJ,
+	TPI,
+	TPI_PRE_UW_ADJ,
+	PFLR,
+	PFLR_ATT,
+	PFLR_CAT,
+	ROC,
+	UW_ADJ_IMPACT,
+	EVENT_LOAD_TIMESTAMP,
+	RECORD_KAFKA_NPTS,
+	RECORD_KAFKA_OFFSET,
+	RECORD_KAFKA_PARTITION,
+	CREATED_AT,
+	CREATED_BY,
+	CREATED_FROM,
+	PROCESS_ID,
+	SOURCE_NAME
+) as
+            SELECT       BK_RATER_NAME 
+                    	,BK_VERSION 
+                    	,BK_RATING_ID 
+                    	,SK_LAYER_SEQUENCE_NUMBER 
+                    	,BK_CLIENT_SUPPLIED_ID 
+                    	--,COVERAGE_NAME
+                    	,IS_PRIMARY_EXCESS 
+                    	,TRIFOCUS 
+                    	,EXPECTED_LOSS_COST 
+                    	,EXPECTED_LOSS_COST_PRE_UW_ADJ 
+                    	,LIMIT 
+                    	,EXCESS 
+                    	,DEDUCTIBLE 
+                    	,AGGREGATE_LIMIT 
+                    	,AGGREGATE_EXCESS 
+                    	,AGGREGATE_DEDUCTIBLE 
+                    	,CURRENCY 
+                    	,SECTION_REFERENCE 
+                    	,BROKERAGE 
+                    	,WRITTEN_LINE 
+                    	,PREMIUM 
+                    	,STATUS 
+                    	,BENCHMARK_PREMIUM 
+                    	,BPI 
+                    	,BPI_PRE_UW_ADJ 
+                    	,MODEL_PREMIUM 
+                    	,UNITY_PREMIUM 
+                    	,QUOTED_PREMIUM 
+                    	,TECHNICAL_PREMIUM 
+                    	,TECHNICAL_PREMIUM_NET 
+                    	,TECHNICAL_PREMIUM_PRE_UW_ADJ 
+                    	,TPI 
+                    	,TPI_PRE_UW_ADJ 
+                    	,PFLR 
+                    	,PFLR_ATT 
+                    	,PFLR_CAT 
+                    	,ROC 
+                    	,UW_ADJ_IMPACT 
+                        ,EVENT_LOAD_TIMESTAMP
+                        ,RECORD_KAFKA_NPTS 
+                        ,RECORD_KAFKA_OFFSET 
+                        ,RECORD_KAFKA_PARTITION 
+                        ,CREATED_AT 
+                        ,CREATED_BY
+                        ,CREATED_FROM 
+                        ,PROCESS_ID 
+                        ,SOURCE_NAME
+            FROM        PXMGT_RATING_020_STG.RATER_LAYER;create or replace view PXMGT_RATING.RATER_LAYER_RATER_DEFINED(
+	BK_RATER_NAME,
+	BK_VERSION,
+	BK_RATING_ID,
+	SK_LAYER_SEQUENCE_NO,
+	BK_LAYER_KEY,
+	BK_CLIENT_SUPPLIED_ID,
+	LAYER_VALUE,
+	EVENT_LOAD_TIMESTAMP,
+	RECORD_KAFKA_NPTS,
+	RECORD_KAFKA_OFFSET,
+	RECORD_KAFKA_PARTITION,
+	CREATED_AT,
+	CREATED_BY,
+	CREATED_FROM,
+	PROCESS_ID,
+	SOURCE_NAME
+) as
+            SELECT       BK_RATER_NAME 
+                    	,BK_VERSION 
+                    	,BK_RATING_ID 
+                    	,SK_LAYER_SEQUENCE_NO 
+                    	,BK_LAYER_KEY 
+                    	,BK_CLIENT_SUPPLIED_ID 
+                    	,LAYER_VALUE
+                        ,EVENT_LOAD_TIMESTAMP
+                        ,RECORD_KAFKA_NPTS 
+                        ,RECORD_KAFKA_OFFSET 
+                        ,RECORD_KAFKA_PARTITION 
+                        ,CREATED_AT 
+                        ,CREATED_BY
+                        ,CREATED_FROM 
+                        ,PROCESS_ID 
+                        ,SOURCE_NAME
+            FROM        PXMGT_RATING_020_STG.RATER_LAYER_RATER_DEFINED;create or replace view PXMGT_RATING.RATER_RATE(
+	BK_RATE_CURRENCY,
+	BK_RATER_NAME,
+	BK_VERSION,
+	BK_RATING_ID,
+	BK_CLIENT_SUPPLIED_ID,
+	RATE,
+	EVENT_LOAD_TIMESTAMP,
+	RECORD_KAFKA_NPTS,
+	RECORD_KAFKA_OFFSET,
+	RECORD_KAFKA_PARTITION,
+	CREATED_AT,
+	CREATED_BY,
+	CREATED_FROM,
+	PROCESS_ID,
+	SOURCE_NAME
+) as
+            SELECT       BK_RATE_CURRENCY 
+                    	,BK_RATER_NAME 
+                    	,BK_VERSION 
+                    	,BK_RATING_ID 
+                    	,BK_CLIENT_SUPPLIED_ID 
+                    	,RATE
+                        ,EVENT_LOAD_TIMESTAMP
+                        ,RECORD_KAFKA_NPTS 
+                        ,RECORD_KAFKA_OFFSET 
+                        ,RECORD_KAFKA_PARTITION 
+                        ,CREATED_AT 
+                        ,CREATED_BY
+                        ,CREATED_FROM 
+                        ,PROCESS_ID 
+                        ,SOURCE_NAME
+            FROM        PXMGT_RATING_020_STG.RATER_RATE;create or replace view PXMGT_RATING.RATER_RATED_RISK(
+	BK_RATING_ID,
+	BK_RATER_NAME,
+	BK_CLIENT_SUPPLIED_ID,
+	BK_VERSION,
+	PRODUCT_ID,
+	DATE_CREATED,
+	LAST_UPDATED,
+	STATUS,
+	REQUEST_DATE,
+	EVENT_LOAD_TIMESTAMP,
+	RECORD_KAFKA_NPTS,
+	RECORD_KAFKA_OFFSET,
+	RECORD_KAFKA_PARTITION,
+	CREATED_AT,
+	CREATED_BY,
+	CREATED_FROM,
+	PROCESS_ID,
+	SOURCE_NAME
+) as
+            SELECT       BK_RATING_ID 
+                    	,BK_RATER_NAME 
+                    	,BK_CLIENT_SUPPLIED_ID 
+                    	,BK_VERSION 
+                    	,PRODUCT_ID 
+                    	,DATE_CREATED 
+                    	,LAST_UPDATED 
+                    	,STATUS 
+                    	,REQUEST_DATE
+                        ,EVENT_LOAD_TIMESTAMP
+                        ,RECORD_KAFKA_NPTS 
+                        ,RECORD_KAFKA_OFFSET 
+                        ,RECORD_KAFKA_PARTITION 
+                        ,CREATED_AT 
+                        ,CREATED_BY
+                        ,CREATED_FROM 
+                        ,PROCESS_ID 
+                        ,SOURCE_NAME
+            FROM        PXMGT_RATING_020_STG.RATER_RATED_RISK;create or replace view PXMGT_RATING.RATER_RATED_RISK_RATER_DEFINED(
+	BK_RATING_ID,
+	BK_RATER_NAME,
+	BK_VERSION,
+	BK_KEY,
+	BK_CLIENT_SUPPLIED_ID,
+	VALUE,
+	EVENT_LOAD_TIMESTAMP,
+	RECORD_KAFKA_NPTS,
+	RECORD_KAFKA_OFFSET,
+	RECORD_KAFKA_PARTITION,
+	CREATED_AT,
+	CREATED_BY,
+	CREATED_FROM,
+	PROCESS_ID,
+	SOURCE_NAME
+) as
+            SELECT       BK_RATING_ID 
+                    	,BK_RATER_NAME 
+                    	,BK_VERSION 
+                    	,BK_KEY 
+                    	,BK_CLIENT_SUPPLIED_ID 
+                    	,VALUE
+                        ,EVENT_LOAD_TIMESTAMP
+                        ,RECORD_KAFKA_NPTS 
+                        ,RECORD_KAFKA_OFFSET 
+                        ,RECORD_KAFKA_PARTITION 
+                        ,CREATED_AT 
+                        ,CREATED_BY
+                        ,CREATED_FROM 
+                        ,PROCESS_ID 
+                        ,SOURCE_NAME
+            FROM        PXMGT_RATING_020_STG.RATER_RATED_RISK_RATER_DEFINED;create or replace view PXMGT_RATING.RATER_RATE_CHANGE(
+	BK_RATER_NAME,
+	BK_VERSION,
+	BK_RATING_ID,
+	SK_LAYER_SEQUENCE_NUMBER,
+	BK_CLIENT_SUPPLIED_ID,
+	BK_RATE_CHANGE_TYPE,
+	MODEL_CALCULATED,
+	UW_SELECTED_CALCULATED,
+	UW_SELECTED_OVERRIDE,
+	UW_SELECTED_IS_DIRTY,
+	UW_SELECTED_IS_OVERRIDDEN,
+	UW_SELECTED_OVERRIDEN_CALCULATED,
+	UW_SELECTED_SELECTED,
+	EXPIRING_LAYER,
+	COMMENT,
+	EVENT_LOAD_TIMESTAMP,
+	RECORD_KAFKA_NPTS,
+	RECORD_KAFKA_OFFSET,
+	RECORD_KAFKA_PARTITION,
+	CREATED_AT,
+	CREATED_BY,
+	CREATED_FROM,
+	PROCESS_ID,
+	SOURCE_NAME
+) as
+            SELECT       BK_RATER_NAME 
+                    	,BK_VERSION 
+                    	,BK_RATING_ID 
+                    	,SK_LAYER_SEQUENCE_NUMBER 
+                    	,BK_CLIENT_SUPPLIED_ID 
+                    	,BK_RATE_CHANGE_TYPE 
+                    	,MODEL_CALCULATED 
+                    	,UW_SELECTED_CALCULATED 
+                    	,UW_SELECTED_OVERRIDE 
+                    	,UW_SELECTED_IS_DIRTY 
+                    	,UW_SELECTED_IS_OVERRIDDEN 
+                    	,UW_SELECTED_OVERRIDEN_CALCULATED 
+                    	,UW_SELECTED_SELECTED 
+						,EXPIRING_LAYER
+                    	,COMMENT
+                        ,EVENT_LOAD_TIMESTAMP
+                        ,RECORD_KAFKA_NPTS 
+                        ,RECORD_KAFKA_OFFSET 
+                        ,RECORD_KAFKA_PARTITION 
+                        ,CREATED_AT 
+                        ,CREATED_BY
+                        ,CREATED_FROM 
+                        ,PROCESS_ID 
+                        ,SOURCE_NAME
+            FROM        PXMGT_RATING_020_STG.RATER_RATE_CHANGE;create or replace view PXMGT_RATING.RATER_RATE_CHANGE_RATER_DEFINED(
+	BK_RATER_NAME,
+	BK_VERSION,
+	BK_RATING_ID,
+	SK_LAYER_SEQUENCE_NUMBER,
+	BK_CLIENT_SUPPLIED_ID,
+	BK_RATE_CHANGE_KEY,
+	RATE_CHANGE_VALUE,
+	EVENT_LOAD_TIMESTAMP,
+	RECORD_KAFKA_NPTS,
+	RECORD_KAFKA_OFFSET,
+	RECORD_KAFKA_PARTITION,
+	CREATED_AT,
+	CREATED_BY,
+	CREATED_FROM,
+	PROCESS_ID,
+	SOURCE_NAME
+) as
+            SELECT       BK_RATER_NAME 
+                    	,BK_VERSION 
+                    	,BK_RATING_ID 
+                    	,SK_LAYER_SEQUENCE_NUMBER 
+                    	,BK_CLIENT_SUPPLIED_ID 
+                    	,BK_RATE_CHANGE_KEY 
+                    	,RATE_CHANGE_VALUE
+                        ,EVENT_LOAD_TIMESTAMP
+                        ,RECORD_KAFKA_NPTS 
+                        ,RECORD_KAFKA_OFFSET 
+                        ,RECORD_KAFKA_PARTITION 
+                        ,CREATED_AT 
+                        ,CREATED_BY
+                        ,CREATED_FROM 
+                        ,PROCESS_ID 
+                        ,SOURCE_NAME
+            FROM        PXMGT_RATING_020_STG.RATER_RATE_CHANGE_RATER_DEFINED;create or replace view PXMGT_RATING.RATER_RATE_CHANGE_SELECTED_DETAILS(
+	BK_RATER_NAME,
+	BK_VERSION,
+	BK_RATING_ID,
+	SK_LAYER_SEQUENCE_NUMBER,
+	BK_CLIENT_SUPPLIED_ID,
+	MODEL_CALCULATED,
+	UW_SELECTED,
+	COMMENT,
+	LLOYDS_LIMIT_ATTACHEMENT_POINT_CHANGE,
+	LLOYDS_BREADTH_OF_COVER_CHANGE_CHANGE,
+	OTHER_FACTORS_CHANGE,
+	EVENT_LOAD_TIMESTAMP,
+	RECORD_KAFKA_NPTS,
+	RECORD_KAFKA_OFFSET,
+	RECORD_KAFKA_PARTITION,
+	CREATED_AT,
+	CREATED_BY,
+	CREATED_FROM,
+	PROCESS_ID,
+	SOURCE_NAME
+) as
+            SELECT       BK_RATER_NAME 
+                        ,BK_VERSION 
+                        ,BK_RATING_ID 
+                        ,SK_LAYER_SEQUENCE_NUMBER 
+                        ,BK_CLIENT_SUPPLIED_ID 
+                        ,MODEL_CALCULATED 
+                        ,UW_SELECTED 
+                        ,COMMENT
+                        ,LLOYDS_LIMIT_ATTACHEMENT_POINT_CHANGE 
+                        ,LLOYDS_BREADTH_OF_COVER_CHANGE_CHANGE 
+                        ,OTHER_FACTORS_CHANGE
+                        ,EVENT_LOAD_TIMESTAMP
+                        ,RECORD_KAFKA_NPTS 
+                        ,RECORD_KAFKA_OFFSET 
+                        ,RECORD_KAFKA_PARTITION 
+                        ,CREATED_AT 
+                        ,CREATED_BY
+                        ,CREATED_FROM 
+                        ,PROCESS_ID 
+                        ,SOURCE_NAME
+            FROM        PXMGT_RATING_020_STG.RATER_RATE_CHANGE_SELECTED_DETAILS;create or replace view PXMGT_RATING.RATER_STANDARD_FIELDS(
+	BK_RATER_NAME,
+	BK_VERSION,
+	BK_RATING_ID,
+	BK_CLIENT_SUPPLIED_ID,
+	BENCHMARK_CLASS,
+	BROKER,
+	EXPIRY_DATE,
+	FACILITY_REFERENCE,
+	INCEPTION_DATE,
+	INSURED_COUNTRY,
+	INSURED_NAME,
+	INSURED_POSTAL_CODE,
+	INSURED_STATE_OR_PROVINCE,
+	IS_ADMITTED_OR_SURPLUS,
+	IS_FREE_TRADE_ZONE,
+	IS_RENEWAL,
+	UNDERWRITER,
+	UW_RATIONALE,
+	TRIFOCUS,
+	POLICY_REFERENCE,
+	RATING_METHODOLOGY,
+	IS_CASE_PRICED,
+	IS_RATER_PRICED,
+	EVENT_LOAD_TIMESTAMP,
+	RECORD_KAFKA_NPTS,
+	RECORD_KAFKA_OFFSET,
+	RECORD_KAFKA_PARTITION,
+	CREATED_AT,
+	CREATED_BY,
+	CREATED_FROM,
+	PROCESS_ID,
+	SOURCE_NAME
+) as
+            SELECT       BK_RATER_NAME 
+                    	,BK_VERSION 
+                    	,BK_RATING_ID 
+                    	,BK_CLIENT_SUPPLIED_ID 
+                    	,BENCHMARK_CLASS 
+                    	,BROKER 
+                    	,EXPIRY_DATE 
+                    	,FACILITY_REFERENCE 
+                    	,INCEPTION_DATE 
+                    	,INSURED_COUNTRY 
+                    	,INSURED_NAME 
+                    	,INSURED_POSTAL_CODE 
+                    	,INSURED_STATE_OR_PROVINCE 
+                    	,IS_ADMITTED_OR_SURPLUS 
+                    	,IS_FREE_TRADE_ZONE
+                    	,IS_RENEWAL
+                    	,UNDERWRITER 
+                    	,UW_RATIONALE 
+                    	,TRIFOCUS 
+                    	,POLICY_REFERENCE 
+                    	,RATING_METHODOLOGY 
+                    	,IS_CASE_PRICED
+                    	,IS_RATER_PRICED
+                        ,EVENT_LOAD_TIMESTAMP
+                        ,RECORD_KAFKA_NPTS 
+                        ,RECORD_KAFKA_OFFSET 
+                        ,RECORD_KAFKA_PARTITION 
+                        ,CREATED_AT 
+                        ,CREATED_BY
+                        ,CREATED_FROM 
+                        ,PROCESS_ID 
+                        ,SOURCE_NAME
+            FROM        PXMGT_RATING_020_STG.RATER_STANDARD_FIELDS;CREATE VIEW IF NOT EXISTS PXMGT_RATING.REVENUE
+AS
+(
+    SELECT
+        BK_RATING_ID,
+        BK_RATING_VERSION,
+        BK_RATER_NAME,
+        BK_CLIENT_SUPPLIED_ID,
+        BK_REVENUE_NAME,
+
+        VALUE,
+        YEAR,
+        CATEGORY_1,
+        CATEGORY_2,
+        CATEGORY_3,
+    
+        EVENT_LOAD_TIMESTAMP,
+        RECORD_KAFKA_NPTS,
+        RECORD_KAFKA_OFFSET,
+        RECORD_KAFKA_PARTITION,
+        CREATED_AT,
+        CREATED_BY,
+        CREATED_FROM,
+        PROCESS_ID,
+        SOURCE_NAME
+    FROM
+        PXMGT_RATING_020_STG.REVENUE
+);CREATE VIEW IF NOT EXISTS PXMGT_RATING.WORKBENCH_LEGACY_RATER_PAYLOAD_RATER_SCREEN
+AS
+(
+    SELECT
+        POLICY_REFERENCE,
+        WORKBENCH_LEGACY_RATER_PAYLOAD,
+        LAST_UPDATE_LDTS,
+        SOURCE_NAME,
+        PROCESS_ID
+    FROM
+        PXMGT_RATING_020_STG.WORKBENCH_LEGACY_RATER_PAYLOAD_RATER_SCREEN
+);CREATE VIEW IF NOT EXISTS PXMGT_RATING.WORKBENCH_LEGACY_RATER_PAYLOAD_UW_RATIONALE
+AS
+(
+    SELECT
+        POLICY_REFERENCE,
+        UW_RATIONALE_ID,
+        UW_RATIONALE_NAME,
+        UW_RATIONALE_VALUE,
+        LAST_UPDATE_LDTS,
+        SOURCE_NAME,
+        PROCESS_ID
+    FROM
+        PXMGT_RATING_020_STG.WORKBENCH_LEGACY_RATER_PAYLOAD_UW_RATIONALE
+);
